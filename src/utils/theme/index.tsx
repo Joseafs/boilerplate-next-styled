@@ -1,0 +1,72 @@
+import theme from '~/theme/theme-config';
+import {
+  PropsBaseColors,
+  PropsBaseColorsOptions,
+  PropsTheme
+} from '~/types/theme';
+
+export const getThemeColor = (
+  theme: PropsTheme,
+  color?: PropsBaseColors,
+  type?: PropsBaseColorsOptions
+) => {
+  if (type && color) {
+    return theme.palette[color][type];
+  }
+  if (color) {
+    return theme.palette[color].main;
+  }
+
+  return theme.palette.common.black;
+};
+
+type PropsMediaResponsiveType = {
+  [key: string]: string;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+};
+type PropsMediaType = {
+  maxW: PropsMediaResponsiveType;
+  minW: PropsMediaResponsiveType;
+  maxH: PropsMediaResponsiveType;
+  minH: PropsMediaResponsiveType;
+};
+
+export const useMediaQuery = (): PropsMediaType => {
+  const { breakpoints } = theme;
+
+  const maxWidth = {
+    xs: `(max-width: ${breakpoints.values.xs}px)`,
+    sm: `(max-width: ${breakpoints.values.sm}px)`,
+    md: `(max-width: ${breakpoints.values.md}px)`,
+    lg: `(max-width: ${breakpoints.values.lg}px)`,
+    xl: `(max-width: ${breakpoints.values.xl}px)`
+  };
+  const minWidth = {
+    xs: `(min-width: ${breakpoints.values.xs + 1}px)`,
+    sm: `(min-width: ${breakpoints.values.sm + 1}px)`,
+    md: `(min-width: ${breakpoints.values.md + 1}px)`,
+    lg: `(min-width: ${breakpoints.values.lg + 1}px)`,
+    xl: `(min-width: ${breakpoints.values.xl + 1}px)`
+  };
+
+  const maxHeight = {
+    xs: `(max-height: ${breakpoints.values.xs}px)`,
+    sm: `(max-height: ${breakpoints.values.sm}px)`,
+    md: `(max-height: ${breakpoints.values.md}px)`,
+    lg: `(max-height: ${breakpoints.values.lg}px)`,
+    xl: `(max-height: ${breakpoints.values.xl}px)`
+  };
+  const minHeight = {
+    xs: `(min-height: ${breakpoints.values.xs + 1}px)`,
+    sm: `(min-height: ${breakpoints.values.sm + 1}px)`,
+    md: `(min-height: ${breakpoints.values.md + 1}px)`,
+    lg: `(min-height: ${breakpoints.values.lg + 1}px)`,
+    xl: `(min-height: ${breakpoints.values.xl + 1}px)`
+  };
+
+  return { maxW: maxWidth, minW: minWidth, maxH: maxHeight, minH: minHeight };
+};

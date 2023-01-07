@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Datepicker Should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-5c4378d1-1 gfwTPz"
+    data-testid="form--datepicker"
+    value=""
+  >
+    <label
+      class="sc-5c4378d1-0 edFNzs"
+      for="form--datepicker"
+    >
+      Test Field
+    </label>
+    <div
+      class="rmdp-container "
+      style="display: inline-block;"
+    >
+      <input
+        autocomplete="off"
+        class="rmdp-input"
+        id="form--datepicker"
+        inputmode="none"
+        placeholder="00/00/0000"
+        type="text"
+        value=""
+      />
+      <div
+        class=""
+        style="position: absolute; left: 0px; top: 0px; will-change: transform; visibility: hidden; z-index: 100;"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
